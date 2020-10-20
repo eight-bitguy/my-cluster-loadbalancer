@@ -1,6 +1,8 @@
-FROM nginx:1.19.1-alpine
+FROM nginx:stable
 
-RUN apk add --no-cache bash certbot
+RUN apt-get update \
+    && apt-get install -y cron bash certbot \
+    && apt-get update -y
 
 WORKDIR /app
 
