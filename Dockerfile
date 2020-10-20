@@ -6,11 +6,11 @@ RUN apt-get update \
 
 WORKDIR /app
 
-COPY ./nginx.conf /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/nginx.conf
 
-COPY ./scripts /scripts
+COPY scripts scripts
 
-RUN chmod +x /scripts/*.sh
+RUN chmod +x scripts/*.sh
 
 RUN echo "22 03 * * 2,7 root ./scripts/renew.sh" >/etc/cron.d/certbot-renew
 
